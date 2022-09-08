@@ -176,7 +176,7 @@ class _HomePageState extends State<HomePage> {
       String _id = shop.id.toString();
       final response =
           await http.get(Uri.parse(baseURL + 'shopReports&shop=$_id'));
-          log('shop report url: '+baseURL + 'shopReports&shop=$_id');
+      log('shop report url: ' + baseURL + 'shopReports&shop=$_id');
       shopReport = shopReportFromJson(response.body);
       print(shopReport.data.totalCount.toString());
     } on DioError catch (error) {
@@ -200,7 +200,9 @@ class _HomePageState extends State<HomePage> {
       String _id = shop.id.toString();
       var response =
           await dioClient.get(baseURL + 'shopOrderHistorey/shopId=$_id');
-          log('shop order history url: '+baseURL + 'shopOrderHistorey/shopId=$_id');
+      log('shop order history url: ' +
+          baseURL +
+          'shopOrderHistorey/shopId=$_id');
 
       allOrderList = [];
       waitingOrderList = [];
@@ -392,6 +394,8 @@ class _HomePageState extends State<HomePage> {
   Future getShopData(var userId) async {
     var pref = await SharedPreferences.getInstance();
     var id = pref.getString('user_id');
+    log('========================>>>>>  $id  <<<<<<<<<============');
+    log('========================>>>>>  $userId  <<<<<<<<<============');
     try {
       var response =
           await dioClient.get(baseURL + 'getMyShops/OrderBy&iddealerId&$id');
@@ -413,7 +417,7 @@ class _HomePageState extends State<HomePage> {
             context,
             MaterialPageRoute(
                 builder: (context) => RegisterShopScreen(
-                      customerId: userId,
+                      customerId: id,
                     )));
       }
     } on DioError catch (error) {

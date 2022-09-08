@@ -1,3 +1,6 @@
+import 'dart:convert';
+import 'dart:developer';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -110,6 +113,60 @@ class _SettingPageState extends State<SettingPage> {
     }
   }
 
+  Future<bool> deactiveAccount() async {
+    setState(() {
+      loading = true;
+    });
+    // await checkIsLoggedIn();
+    try {
+      var response = await Dio().post(baseURL + 'de-activate-account',
+          data: FormData.fromMap({
+            'userid': user.id,
+          }));
+
+      var data = response.data;
+      var mapData = json.decode(data);
+      // log(mapData.toString());
+      if (mapData['status'] == 1) {
+        setState(() {
+          loading = false;
+        });
+        return true;
+      } else {
+        setState(() {
+          loading = false;
+        });
+        return false;
+      }
+    } on DioError catch (error) {
+      switch (error.type) {
+        case DioErrorType.connectTimeout:
+        case DioErrorType.sendTimeout:
+        case DioErrorType.cancel:
+          setState(() {
+            loading = false;
+          });
+          return false;
+        // throw error;
+        // break;
+        default:
+          setState(() {
+            loading = false;
+          });
+          return false;
+        // throw error;
+      }
+    } catch (error) {
+      log(error.toString());
+
+      setState(() {
+        loading = false;
+      });
+      return false;
+      // throw error;
+    }
+  }
+
   showShowCase() async {
     var prefs = await SharedPreferences.getInstance();
     var rdFirstTime = prefs.getBool('3FirstTime');
@@ -201,7 +258,7 @@ class _SettingPageState extends State<SettingPage> {
                                         padding: EdgeInsetsResponsive.only(
                                             top: 16, left: 10),
                                         child: TextResponsive(
-                                          user.firstName,
+                                          user.firstName ?? '',
                                           style: TextStyle(
                                               fontSize: 48,
                                               fontWeight: FontWeight.w900),
@@ -1084,6 +1141,121 @@ class _SettingPageState extends State<SettingPage> {
                                       widthResponsive: true,
                                       child: TextResponsive(
                                         'logout'.tr(),
+                                        style: TextStyle(fontSize: 30),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                ContainerResponsive(
+                                    heightResponsive: true,
+                                    widthResponsive: true,
+                                    child: Icon(
+                                      Icons.arrow_forward_ios,
+                                      size: 18,
+                                      color: Theme.of(context).accentColor,
+                                    )),
+                              ],
+                            )),
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        showDialog(
+                          context: context,
+                          builder: (context) => AlertDialog(
+                            content: ListTile(
+                              title: TextResponsive("deactivateAccount".tr(),
+                                  textAlign: TextAlign.left,
+                                  style: TextStyle(fontSize: 26)),
+                              subtitle: TextResponsive("sureToDeactivate".tr(),
+                                  textAlign: TextAlign.left,
+                                  style: TextStyle(fontSize: 22)),
+                            ),
+                            actions: <Widget>[
+                              FlatButton(
+                                color: Colors.grey.shade200,
+                                child: TextResponsive('no'.tr(),
+                                    style: TextStyle(
+                                        fontSize: 26, color: Colors.black)),
+                                onPressed: () => Navigator.of(context).pop(),
+                              ),
+                              FlatButton(
+                                color: Theme.of(context).primaryColor,
+                                child: TextResponsive('yes'.tr(),
+                                    style: TextStyle(
+                                        fontSize: 26, color: Colors.black)),
+                                onPressed: () async {
+                                  final isSuccess = await deactiveAccount();
+                                  if (isSuccess) {
+                                    bottomSelectedIndex = 0;
+                                    prefs.clear();
+                                    Navigator.of(context).pop();
+                                    Navigator.pushReplacement(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                LoginScreen()));
+                                  } else {
+                                    Navigator.of(context).pop();
+                                    Fluttertoast.showToast(
+                                        msg: "serverErrorPleaseTryAgain".tr(),
+                                        toastLength: Toast.LENGTH_SHORT,
+                                        gravity: ToastGravity.BOTTOM,
+                                        backgroundColor: Colors.white,
+                                        textColor:
+                                            Theme.of(context).accentColor,
+                                        fontSize: 15.0);
+                                  }
+                                },
+                              ),
+                            ],
+                          ),
+                        );
+                      },
+                      child: Visibility(
+                        visible: true,
+                        child: ContainerResponsive(
+                            heightResponsive: true,
+                            widthResponsive: true,
+                            padding:
+                                EdgeInsetsResponsive.symmetric(horizontal: 20),
+                            height: 100,
+                            decoration: BoxDecoration(
+                                color: Color(0xffFFFFFF),
+                                border: Border(
+                                    bottom: BorderSide(
+                                        width: 1, color: Color(0xffF2F2F2)))),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: <Widget>[
+                                Row(
+                                  children: [
+                                    ContainerResponsive(
+                                        heightResponsive: true,
+                                        widthResponsive: true,
+                                        width: 70,
+                                        height: 70,
+                                        child: ContainerResponsive(
+                                            decoration: BoxDecoration(
+                                                color: Theme.of(context)
+                                                    .accentColor,
+                                                borderRadius: BorderRadius.only(
+                                                    bottomLeft:
+                                                        Radius.circular(16.0),
+                                                    topRight:
+                                                        Radius.circular(16.0))),
+                                            width: 70,
+                                            height: 70,
+                                            child: Center(
+                                              child: Icon(Icons.exit_to_app,
+                                                  color: Colors.white),
+                                            ))),
+                                    SizedBoxResponsive(width: 30),
+                                    ContainerResponsive(
+                                      heightResponsive: true,
+                                      widthResponsive: true,
+                                      child: TextResponsive(
+                                        'deactivateAccount'.tr(),
                                         style: TextStyle(fontSize: 30),
                                       ),
                                     ),

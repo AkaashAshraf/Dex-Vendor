@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:dio/dio.dart';
@@ -119,8 +120,10 @@ class _RegisterShopScreenState extends State<RegisterShopScreen> {
     try {
       SharedPreferences prefs = await SharedPreferences.getInstance();
 //${prefs.getString('user_id')}
-      var response =
-          await dioClient.get(baseURL + 'getMyShops/OrderBy&iddealerId&$id');
+      log(baseURL + 'getMyShops/OrderBy&iddealerId&$id');
+      var response = await dioClient
+          .get(baseURL + 'getMyShops/OrderBy&iddealerId&22'); //!add id
+
       print('RESPONSE Shop  ${response.data}');
       if (response.data != '') {
         print('RESPONSE MESSAGE ${response.data}');
@@ -209,8 +212,8 @@ class _RegisterShopScreenState extends State<RegisterShopScreen> {
           'dealer_id': '$customerId',
           'address': '$address',
           'shopSerialNumber': '$shopSerialNumber',
-          'longitude': '$long',
-          'Latitude': '$lat',
+          'longitude': long ?? '',
+          'Latitude': lat ?? '',
           'shopCity': '$cityId',
           'isStore': isStore,
           'isRestrunent': isResturant,
@@ -231,8 +234,8 @@ class _RegisterShopScreenState extends State<RegisterShopScreen> {
           'description': '$details',
           'dealer_id': '$customerId',
           'address': '$address',
-          'longitude': '$long',
-          'Latitude': '$lat',
+          'longitude': long ?? '',
+          'Latitude': lat ?? '',
           'shopCity': '$cityId',
           'isStore': isStore,
           'isRestrunent': isResturant,
@@ -244,6 +247,8 @@ class _RegisterShopScreenState extends State<RegisterShopScreen> {
           'licenseImage': licenseImageName
         });
       }
+
+      log(data.fields.toString());
 
       var response = await dioClient.post(baseURL + 'creatShop', data: data);
       print('RESPONSE Create ${response.data}');
