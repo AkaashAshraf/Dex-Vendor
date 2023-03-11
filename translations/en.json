@@ -450,6 +450,6 @@
   "enterStoreType": "Enter Store Type",
   "theOrderHasBeenProcessed": "The Order has been Processed",
   "serverErrorPleaseTryAgain": "Server error please try again!",
-  "deactivateAccount": "Deactivate Account",
+  "deactivateAccount": "Delete Account",
   "sureToDeactivate": "Are you sure you want to delete this account?"
 }
