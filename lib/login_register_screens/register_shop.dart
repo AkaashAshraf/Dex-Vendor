@@ -121,8 +121,8 @@ class _RegisterShopScreenState extends State<RegisterShopScreen> {
       SharedPreferences prefs = await SharedPreferences.getInstance();
 //${prefs.getString('user_id')}
       log(baseURL + 'getMyShops/OrderBy&iddealerId&$id');
-      var response = await dioClient
-          .get(baseURL + 'getMyShops/OrderBy&iddealerId&22'); //!add id
+      var response =
+          await dioClient.get(baseURL + 'getMyShops/OrderBy&iddealerId&$id');
 
       print('RESPONSE Shop  ${response.data}');
       if (response.data != '') {

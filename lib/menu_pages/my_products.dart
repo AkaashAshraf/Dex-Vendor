@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:ui' as ui;
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:dio/dio.dart';
@@ -105,7 +106,8 @@ class _MyProductsPageState extends State<MyProductsPage> {
                                 Expanded(
                                   flex: 4,
                                   child: Padding(
-                                    padding: EdgeInsetsResponsive.only(left: 10),
+                                    padding:
+                                        EdgeInsetsResponsive.only(left: 10),
                                     child: new StarRating(
                                       rating: lst[index].rate != null
                                           ? 1 / lst[index].rate
@@ -457,6 +459,9 @@ class _MyProductsPageState extends State<MyProductsPage> {
                                 color: Color(0xffF9F9F9),
                                 borderRadius: BorderRadius.circular(2)),
                             child: TextField(
+                              onChanged: (text) {
+                                log('text: $text');
+                              },
                               controller: cont,
                               decoration: InputDecoration(
                                   border: InputBorder.none,
