@@ -460,7 +460,21 @@ class _MyProductsPageState extends State<MyProductsPage> {
                                 borderRadius: BorderRadius.circular(2)),
                             child: TextField(
                               onChanged: (text) {
-                                log('text: $text');
+                                setState(() {
+                                  lst = context.locale == Locale('ar')
+                                      ? myProducts
+                                          .where((i) => i.nameAr
+                                              .toLowerCase()
+                                              .contains(
+                                                  cont.text.toLowerCase()))
+                                          .toList()
+                                      : myProducts
+                                          .where((i) => i.name
+                                              .toLowerCase()
+                                              .contains(
+                                                  cont.text.toLowerCase()))
+                                          .toList();
+                                });
                               },
                               controller: cont,
                               decoration: InputDecoration(
@@ -477,8 +491,10 @@ class _MyProductsPageState extends State<MyProductsPage> {
                                     onPressed: () {
                                       setState(() {
                                         lst = myProducts
-                                            .where((i) =>
-                                                i.name.contains(cont.text))
+                                            .where((i) => i.name
+                                                .toLowerCase()
+                                                .contains(
+                                                    cont.text.toLowerCase()))
                                             .toList();
                                       });
                                     },

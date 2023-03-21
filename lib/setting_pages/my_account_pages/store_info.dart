@@ -124,7 +124,7 @@ class _StoreInfoState extends State<StoreInfo> {
       _pr.hide();
       if (response.data.toString().contains("sucess")) {
         Fluttertoast.showToast(
-            msg: "تم بنجاح",
+            msg: "doneSuccessfully".tr(),
             toastLength: Toast.LENGTH_SHORT,
             gravity: ToastGravity.BOTTOM,
             backgroundColor: Colors.green,
@@ -170,7 +170,7 @@ class _StoreInfoState extends State<StoreInfo> {
 
       if (response != null) {
         Fluttertoast.showToast(
-            msg: "تم تعديل الصورة بنجاح",
+            msg: "photoHasBeenChangedSuccessfully".tr(),
             toastLength: Toast.LENGTH_SHORT,
             gravity: ToastGravity.BOTTOM,
             backgroundColor: Colors.white,
@@ -246,7 +246,7 @@ class _StoreInfoState extends State<StoreInfo> {
         setState(() {});
         await _pr.hide();
         await Fluttertoast.showToast(
-            msg: 'حاول مجدداً',
+            msg: 'pleaseTryAgain'.tr(),
             toastLength: Toast.LENGTH_SHORT,
             gravity: ToastGravity.BOTTOM,
             //timeInSecForIos: 1,
@@ -260,7 +260,7 @@ class _StoreInfoState extends State<StoreInfo> {
 
       setState(() {});
       await Fluttertoast.showToast(
-          msg: 'حاول مجدداً',
+          msg: 'pleaseTryAgain'.tr(),
           toastLength: Toast.LENGTH_SHORT,
           gravity: ToastGravity.BOTTOM,
           //timeInSecForIos: 1,
@@ -358,7 +358,7 @@ class _StoreInfoState extends State<StoreInfo> {
           isDismissible: false,
           showLogs: true);
       _pr.style(
-          message: 'جاري تعديل بيانات المتجر',
+          message: 'storDetailsBeingUpdating'.tr(),
           borderRadius: 10.0,
           backgroundColor: Colors.white,
           progressWidget: CircularProgressIndicator(),

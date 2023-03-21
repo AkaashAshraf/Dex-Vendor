@@ -1,3 +1,4 @@
+import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
 
 class ResetPassword extends StatefulWidget {
@@ -32,7 +33,7 @@ class _ResetPasswordState extends State<ResetPassword> {
           ),
           Center(
               child: Text(
-            ' إستعادة كلمة المرور ',
+            'forgetPassword'.tr(),
             style: TextStyle(color: Color(0xff34C961), fontSize: 25),
           )),
           SizedBox(height: 5),

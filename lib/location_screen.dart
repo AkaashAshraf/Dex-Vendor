@@ -1,3 +1,6 @@
+import 'dart:developer';
+
+import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
@@ -26,19 +29,43 @@ class ProductLocationState extends State<ProductLocation> {
 
   ProductLocationState(LatLng latLng);
 
-  Future _getLocation() async {
+  // Future _getLocation() async {
+  //   LocationData loc;
+  //   var location = new Location();
+  //   try {
+  //     log('_getLocation');
+  //     loc = await location.getLocation();
+  //     latitude = loc.latitude;
+  //     longitude = loc.longitude;
+  //     setState(() {
+  //       lastMapPosition = LatLng(latitude, longitude);
+  //     });
+  //     // _kLake = CameraPosition(target: LatLng(latitude, longitude));
+  //     _goToMyLoction();
+  //   } catch (e) {
+  //     log(e);
+  //   }
+  // }
+
+  Future _getLocation(BuildContext context) async {
     LocationData loc;
-    var location = new Location();
     try {
+      log('_getLocation');
       loc = await location.getLocation();
       latitude = loc.latitude;
       longitude = loc.longitude;
-      setState(() {
-        lastMapPosition = LatLng(latitude, longitude);
-      });
-      _goToMyLoction();
+      _kGooglePlex = CameraPosition(
+          target: LatLng(loc.latitude, loc.longitude),
+          bearing: 0.0,
+          zoom: 15.4746);
+      setState(() {});
+      await _goToMyLoction();
     } catch (e) {
-      print(e);
+      if (e.code == 'PERMISSION_DENIED') {
+        var error = 'permissiondenied';
+        log(error);
+      }
+      loc = null;
     }
   }
 
@@ -50,8 +77,10 @@ class ProductLocationState extends State<ProductLocation> {
   }
 
   Future<void> _goToMyLoction() async {
+    log('latitude: $latitude, longitude: $longitude');
     final GoogleMapController controller = await _controller.future;
-    controller.animateCamera(CameraUpdate.newCameraPosition(_kLake));
+    controller.animateCamera(CameraUpdate.newCameraPosition(_kGooglePlex));
+    // setState(() {});
   }
 
   Map<MarkerId, Marker> markers =
@@ -66,8 +95,8 @@ class ProductLocationState extends State<ProductLocation> {
           target: LatLng(widget.latLng.latitude, widget.latLng.longitude),
           zoom: 13.4746);
     } else {
-      _kLake =
-          CameraPosition(bearing: 0.0, target: LatLng(0, 0), zoom: 13.4746);
+      // _kLake =
+      //     CameraPosition(bearing: 0.0, target: LatLng(0, 0), zoom: 13.4746);
     }
     if (widget.from == "order" || widget.latLng != null) {
       latitude = widget.latLng.latitude;
@@ -78,14 +107,11 @@ class ProductLocationState extends State<ProductLocation> {
         icon: BitmapDescriptor.defaultMarker,
       ));
     } else {
-      _getLocation();
+      _getLocation(context);
     }
   }
 
-  CameraPosition _kGooglePlex = CameraPosition(
-    target: LatLng(37.42796133580664, -122.085749655962),
-    zoom: 2.4746,
-  );
+  CameraPosition _kGooglePlex;
 
   CameraPosition _kLake = CameraPosition(target: LatLng(0, 0));
 
@@ -159,7 +185,7 @@ class ProductLocationState extends State<ProductLocation> {
                           ),
                           child: Center(
                               child: TextResponsive(
-                            'تاكيد الموقع',
+                            'confirmLocation'.tr(),
                             style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 35,

@@ -450,5 +450,21 @@
   "theOrderHasBeenProcessed": "تم تجهييز الطلب",
   "serverErrorPleaseTryAgain": "خطأ في الخادم ، يرجى المحاولة مرة أخرى!",
   "deactivateAccount": "تعطيل الحساب",
-  "sureToDeactivate": "هل أنت متأكد أنك تريد حذف هذا الحساب؟"
+  "sureToDeactivate": "هل أنت متأكد أنك تريد حذف هذا الحساب؟",
+  "confirmLocation": "تاكيد الموقع",
+  "requestProcessedSuccessfully": "تم الانتهاء من تجهييز الطلب بنجاح",
+  "linkedUpInTheNetworks": "خطت في الشبكه",
+  "pleaseWait": "الرجاء الانتظار",
+  "productHasBeenCreatedSuccessfully": "تم إنشاء المنتج بنجاح",
+  "storeHasBeenCreatedSuccessfully": "تم إنشاء المتجر بنجاح",
+  "pleaseTryAgain": "حاول مره اخرى",
+  "allDonePleaseEnterNewPassword": "تم التعيين, أدخل كلمة المرور الجديدة",
+  "noAccountIsRegisteredWithThisNumber": "لا يوجد حساب مسجل بهذا الرقم",
+  "passwordIsBeingResettingPleaseWait": "جاري اعادة تعين كلمة المرور .. الرجاء الانتظار",
+  "pleaseEnterYourNumberToReceiveTheNewPassword": "أدخل رقم جوالك لتصلك كلمة المرور الجديدة",
+  "phoneNumberIsIncorrect": "خطأ في رقم الهاتف",
+  "orderHasBeenAccepted": "تم قبول العرض",
+  "doneSuccessfully": "تم بنجاح",
+  "photoHasBeenChangedSuccessfully": "تم تعديل الصورة بنجاح",
+  "storDetailsBeingUpdating": "جاري تعديل بيانات المتجر"
 }

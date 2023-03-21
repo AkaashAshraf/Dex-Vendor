@@ -5,6 +5,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:mplus_provider/home.dart';
 import 'package:mplus_provider/location_screen.dart';
 import 'package:mplus_provider/models/cities.dart';
@@ -136,7 +137,7 @@ class _RegisterShopScreenState extends State<RegisterShopScreen> {
           loading = false;
         });
         Fluttertoast.showToast(
-            msg: "تم إنشاء المتجر بنجاح",
+            msg: "storeHasBeenCreatedSuccessfully".tr(),
             toastLength: Toast.LENGTH_SHORT,
             gravity: ToastGravity.BOTTOM,
             backgroundColor: Colors.white,
@@ -152,7 +153,7 @@ class _RegisterShopScreenState extends State<RegisterShopScreen> {
           loading = false;
         });
         Fluttertoast.showToast(
-            msg: "حاول مره اخرى",
+            msg: "pleaseTryAgain".tr(),
             toastLength: Toast.LENGTH_SHORT,
             gravity: ToastGravity.BOTTOM,
             backgroundColor: Colors.redAccent,
@@ -377,7 +378,7 @@ class _RegisterShopScreenState extends State<RegisterShopScreen> {
   Widget build(BuildContext context) {
     pr = ProgressDialog(context, isDismissible: false);
     pr.style(
-        message: '...الرجاء الانتظار',
+        message: 'pleaseWait'.tr(),
         borderRadius: 10.0,
         backgroundColor: Colors.white,
         progressWidget: CircularProgressIndicator(),

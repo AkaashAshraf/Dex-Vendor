@@ -83,7 +83,7 @@ class _ProfileState extends State<Profile> {
       _pr.hide();
       if (response.data.toString().contains("sucess")) {
         Fluttertoast.showToast(
-            msg: "تم بنجاح",
+            msg: "doneSuccessfully".tr(),
             toastLength: Toast.LENGTH_SHORT,
             gravity: ToastGravity.BOTTOM,
             backgroundColor: Colors.green,
@@ -130,7 +130,7 @@ class _ProfileState extends State<Profile> {
       _pr.hide();
       if (response.data["Response"] == "1") {
         Fluttertoast.showToast(
-            msg: "تم بنجاح",
+            msg: "doneSuccessfully".tr(),
             toastLength: Toast.LENGTH_SHORT,
             gravity: ToastGravity.BOTTOM,
             backgroundColor: Colors.green,
@@ -177,7 +177,7 @@ class _ProfileState extends State<Profile> {
       _pr.hide();
       if (response.data.toString().contains("sucess")) {
         Fluttertoast.showToast(
-            msg: "تم بنجاح",
+            msg: "doneSuccessfully".tr(),
             toastLength: Toast.LENGTH_SHORT,
             gravity: ToastGravity.BOTTOM,
             backgroundColor: Colors.green,

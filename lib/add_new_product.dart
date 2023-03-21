@@ -270,7 +270,7 @@ class _AddNewProductState extends State<AddNewProduct> {
       });
       if (response != null) {
         Fluttertoast.showToast(
-            msg: "تم إنشاء المنتج بنجاح",
+            msg: "productHasBeenCreatedSuccessfully".tr(),
             toastLength: Toast.LENGTH_SHORT,
             gravity: ToastGravity.BOTTOM,
             backgroundColor: Colors.white,

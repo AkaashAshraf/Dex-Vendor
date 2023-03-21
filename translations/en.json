@@ -451,5 +451,21 @@
   "theOrderHasBeenProcessed": "The Order has been Processed",
   "serverErrorPleaseTryAgain": "Server error please try again!",
   "deactivateAccount": "Delete Account",
-  "sureToDeactivate": "Are you sure you want to delete this account?"
+  "sureToDeactivate": "Are you sure you want to delete this account?",
+  "confirmLocation": "Confirm Loaction",
+  "requestProcessedSuccessfully": "The request has been processed successfully",
+  "linkedUpInTheNetworks": "Linked up the networks",
+  "pleaseWait": "Please wait",
+  "productHasBeenCreatedSuccessfully": "Product has been created successfully",
+  "storeHasBeenCreatedSuccessfully": "Store has been created successfully",
+  "pleaseTryAgain": "Please try again",
+  "allDonePleaseEnterNewPassword": "All done, please enter new password",
+  "noAccountIsRegisteredWithThisNumber": "No account is registered with this number ",
+  "passwordIsBeingResettingPleaseWait": "Password is being resetting .. please wait",
+  "pleaseEnterYourNumberToReceiveTheNewPassword": "Please enter your number to receive the new password",
+  "phoneNumberIsIncorrect": "Phone number is incorrect",
+  "orderHasBeenAccepted": "Order has been accepted",
+  "doneSuccessfully": "Done successfully ",
+  "photoHasBeenChangedSuccessfully": "Photo has been changed successfully",
+  "storDetailsBeingUpdating": "Store's details is being updating"
 }

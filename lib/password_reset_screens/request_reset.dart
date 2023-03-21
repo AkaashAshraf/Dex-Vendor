@@ -1,3 +1,4 @@
+import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
 import 'package:mplus_provider/ui/widgets/loading.dart';
 import 'package:responsive_widgets/responsive_widgets.dart';
@@ -48,7 +49,7 @@ class _RequestResetState extends State<RequestReset> {
         Navigator.pushReplacement(
             context, MaterialPageRoute(builder: (context) => LoginScreen()));
         Fluttertoast.showToast(
-            msg: "تم التعيين, أدخل كلمة المرور الجديدة",
+            msg: "allDonePleaseEnterNewPassword".tr(),
             toastLength: Toast.LENGTH_SHORT,
             gravity: ToastGravity.BOTTOM,
             backgroundColor: Colors.green,
@@ -57,7 +58,7 @@ class _RequestResetState extends State<RequestReset> {
         // getUserData(phone);
       } else {
         Fluttertoast.showToast(
-            msg: "لا يوجد حساب مسجل بهذا الرقم",
+            msg: "noAccountIsRegisteredWithThisNumber".tr(),
             toastLength: Toast.LENGTH_SHORT,
             gravity: ToastGravity.BOTTOM,
             backgroundColor: Colors.red,
@@ -123,7 +124,7 @@ class _RequestResetState extends State<RequestReset> {
                         height: 100,
                         child: Center(
                           child: TextResponsive(
-                              'جاري اعادة تعين كلمة المرور .. الرجاء الانتظار',
+                              'passwordIsBeingResettingPleaseWait'.tr(),
                               style: TextStyle(fontSize: 25)),
                         ),
                       ),
@@ -131,7 +132,7 @@ class _RequestResetState extends State<RequestReset> {
 
                     Center(
                         child: TextResponsive(
-                      ' إستعادة كلمة المرور ',
+                      'forgetPassword'.tr(),
                       style: TextStyle(
                           color: Theme.of(context).accentColor, fontSize: 45),
                     )),
@@ -141,7 +142,7 @@ class _RequestResetState extends State<RequestReset> {
                     ContainerResponsive(
                       margin: EdgeInsetsResponsive.only(left: 40, right: 40),
                       child: TextResponsive(
-                        'أدخل رقم جوالك لتصلك كلمة المرور الجديدة',
+                        'pleaseEnterYourNumberToReceiveTheNewPassword'.tr(),
                         style:
                             TextStyle(color: Color(0xff8D8D8D), fontSize: 24),
                         textAlign: TextAlign.center,
@@ -154,7 +155,7 @@ class _RequestResetState extends State<RequestReset> {
                     ContainerResponsive(
                       margin: EdgeInsetsResponsive.only(right: 35, top: 10),
                       child: TextResponsive(
-                        ' رقم الجوال',
+                        'phoneNumber'.tr(),
                         style: TextStyle(
                             color: Theme.of(context).accentColor, fontSize: 27),
                         textAlign: TextAlign.right,
@@ -260,7 +261,7 @@ class _RequestResetState extends State<RequestReset> {
                         _phone = phoneIsoCode.toString() + phone.text;
                         if (phone.text.length != 9 && phone.text.length != 8) {
                           Fluttertoast.showToast(
-                              msg: "خطأ في رقم الهاتف",
+                              msg: "phoneNumberIsIncorrect".tr(),
                               toastLength: Toast.LENGTH_SHORT,
                               gravity: ToastGravity.BOTTOM,
                               backgroundColor: Colors.redAccent,
@@ -280,7 +281,7 @@ class _RequestResetState extends State<RequestReset> {
                               color: Theme.of(context).primaryColor),
                           child: Center(
                             child: TextResponsive(
-                              'تأكيد',
+                              'confirm'.tr(),
                               style:
                                   TextStyle(color: Colors.white, fontSize: 27),
                             ),

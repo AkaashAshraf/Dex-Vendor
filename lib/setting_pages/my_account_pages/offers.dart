@@ -1,3 +1,4 @@
+import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
 
 import '../notification_page.dart';
@@ -146,7 +147,7 @@ class _OffersState extends State<Offers> {
                 Container(
                     margin: EdgeInsets.only(right: 15, top: 0),
                     child: Text(
-                      'تم قبول العرض',
+                      'orderHasBeenAccepted'.tr(),
                       style: TextStyle(
                         fontSize: 16,
                         color: Colors.black,

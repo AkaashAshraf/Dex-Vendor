@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
@@ -260,7 +262,6 @@ class _OrderDetailsState extends State<OrderDetails>
     try {
       var response = await dioClient
           .get(baseURL + 'setOrderState/orderId&$orderId/stateId&2');
-      print('RESPONSE ${response.data}');
       var data = response.data;
       order = OrderInfo.fromJson(data);
       setState(() {
@@ -284,7 +285,7 @@ class _OrderDetailsState extends State<OrderDetails>
         //     context, MaterialPageRoute(builder: (context) => Home()));
       } else {
         Fluttertoast.showToast(
-            msg: 'خطت في الشبكه',
+            msg: 'linkedUpInTheNetworks'.tr(),
             toastLength: Toast.LENGTH_SHORT,
             gravity: ToastGravity.BOTTOM,
             backgroundColor: Colors.red,
@@ -390,7 +391,7 @@ class _OrderDetailsState extends State<OrderDetails>
     _pr = new ProgressDialog(context,
         type: ProgressDialogType.Normal, isDismissible: false, showLogs: true);
     _pr.style(
-        message: 'الرجاء الانتظار',
+        message: 'pleaseWait'.tr(),
         borderRadius: 10.0,
         backgroundColor: Colors.white,
         progressWidget: CircularProgressIndicator(),
@@ -429,7 +430,7 @@ class _OrderDetailsState extends State<OrderDetails>
       });
       if (response.statusCode == 200) {
         Fluttertoast.showToast(
-            msg: "تم الانتهاء من تجهييز الطلب بنجاح",
+            msg: "requestProcessedSuccessfully".tr(),
             toastLength: Toast.LENGTH_SHORT,
             gravity: ToastGravity.BOTTOM,
             backgroundColor: Colors.white,
@@ -439,7 +440,7 @@ class _OrderDetailsState extends State<OrderDetails>
         _getOrderHistory();
       } else {
         Fluttertoast.showToast(
-            msg: 'خطت في الشبكه',
+            msg: 'linkedUpInTheNetworks'.tr(),
             toastLength: Toast.LENGTH_SHORT,
             gravity: ToastGravity.BOTTOM,
             backgroundColor: Colors.red,
@@ -1606,7 +1607,9 @@ class _OrderDetailsState extends State<OrderDetails>
                                                           left: 50),
                                                   child: TextResponsive(
                                                     order.totalValue != null
-                                                        ? (order.totalValue + (order.totalValue * 0.05) +
+                                                        ? (order.totalValue +
+                                                                    (order.totalValue *
+                                                                        0.05) +
                                                                     tax +
                                                                     order
                                                                         .delivery)
