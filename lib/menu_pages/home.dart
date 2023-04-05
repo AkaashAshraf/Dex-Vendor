@@ -215,6 +215,7 @@ class _HomePageState extends State<HomePage> {
       doneOrderList.clear();
       nextPage = response.data['next_page_url'];
       var data = response.data['data'];
+      log('order data: ${response.data}');
       var shops = data as List;
 
       shops.forEach((v) {
@@ -266,7 +267,7 @@ class _HomePageState extends State<HomePage> {
       var response = await Dio().get(nextPage);
       var data = response.data['data'];
       nextPage = response.data['next_page_url'];
-      var newOrders = data as List;
+      var newOrders = data as List; //!*345*210# //99112233
       newOrders.forEach((v) {
         allOrderList.add(OrderInfo.fromJson(v));
       });
@@ -282,7 +283,12 @@ class _HomePageState extends State<HomePage> {
     }
     if (mounted) {
       setState(() {
-        loading2 = false;
+        load += 1;
+        if (waitingOrderList.length < 10 && nextPage != null) {
+          getMoreOrders();
+        } else {
+          loading2 = false;
+        }
       });
     }
   }
