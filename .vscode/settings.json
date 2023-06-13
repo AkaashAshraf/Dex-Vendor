@@ -1,5 +1,7 @@
 {
     "dart.previewFlutterUiGuides": true,
+    "dart.flutterSdkPath": "/Users/thiqatech/flutter_2_5_0",
+
     "dart.sdkPaths": [
         "C:\\dart-sdk"
     ],
@@ -18,5 +20,9 @@
             ]
 
         }
+    ],
+    "php.stubs": [
+
+        "*"
     ]
 }
