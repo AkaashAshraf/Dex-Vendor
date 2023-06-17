@@ -1,0 +1,118 @@
+{
+  "project_info": {
+    "project_number": "790395124070",
+    "project_id": "dexoman-7559f",
+    "storage_bucket": "dexoman-7559f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:790395124070:android:7f6167a7322ecb5071b0a7",
+        "android_client_info": {
+          "package_name": "thiqatech.dex.customer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "790395124070-u8nnpusikjk3g8erg6mtp4ohsd7ikr82.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_ECI3UTKCoCgBZ8UwBJBRG1RB2MqZOVg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "790395124070-u8nnpusikjk3g8erg6mtp4ohsd7ikr82.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "790395124070-6p0qtj9m5t26cd82318sjhhbnlutgiir.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "thiqatech.dex.customer"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:790395124070:android:59c6d9a32dcafdbe71b0a7",
+        "android_client_info": {
+          "package_name": "thiqatech.dex.driver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "790395124070-u8nnpusikjk3g8erg6mtp4ohsd7ikr82.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_ECI3UTKCoCgBZ8UwBJBRG1RB2MqZOVg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "790395124070-u8nnpusikjk3g8erg6mtp4ohsd7ikr82.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "790395124070-6p0qtj9m5t26cd82318sjhhbnlutgiir.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "thiqatech.dex.customer"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:790395124070:android:cb77c7f341347b2971b0a7",
+        "android_client_info": {
+          "package_name": "thiqatech.dex.vendor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "790395124070-u8nnpusikjk3g8erg6mtp4ohsd7ikr82.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_ECI3UTKCoCgBZ8UwBJBRG1RB2MqZOVg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "790395124070-u8nnpusikjk3g8erg6mtp4ohsd7ikr82.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "790395124070-6p0qtj9m5t26cd82318sjhhbnlutgiir.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "thiqatech.dex.customer"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
