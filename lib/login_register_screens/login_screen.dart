@@ -200,7 +200,7 @@ class _LoginScreenState extends State<LoginScreen> {
 //     }
 //   }
 
-login(String password, String phone) async {
+  login(String password, String phone) async {
     try {
       setState(() {
         loading = true;
@@ -208,6 +208,7 @@ login(String password, String phone) async {
       FormData data = new FormData.fromMap({
         'login_phone': '$_phone',
         'password': '$password',
+        'customer_type': 3,
       });
 // print('RESPONSE123 ${data.fields}');
       var response = await Dio().post(baseURL + 'login', data: data);
