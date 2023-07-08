@@ -1,0 +1,28 @@
+{
+    "dart.previewFlutterUiGuides": true,
+    "dart.flutterSdkPath": "/Users/thiqatech/flutter_2_5_0",
+
+    "dart.sdkPaths": [
+        "C:\\dart-sdk"
+    ],
+    "dart.sdkPath": "C:\\flutter\\bin\\cache\\dart-sdk",
+    "dart.flutterRunAdditionalArgs": [
+        "--no-sound-null-safety"
+    ],
+    "dart.flutterCustomEmulators": [
+        {
+            "id": "Pixel_3a_API_30_x86",
+            "name": "Emulator",
+            "executable": "C:/Users/A7mDM3tSiM/AppData/Local/Android/Sdk/emulator/emulator",
+            "args": [
+                "-avd",
+                "Pixel_3a_API_30_x86"
+            ]
+
+        }
+    ],
+    "php.stubs": [
+
+        "*"
+    ]
+}
